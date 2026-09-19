@@ -1,0 +1,13 @@
+*.bak
+*.tmp
+*.log
+*.swp
+*.swo
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.env
+.env.local
+*.pem
+*.key
