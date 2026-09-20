@@ -8,14 +8,14 @@ A lo largo de estos años, me he dado cuenta de que los campos de fútbol de mi 
 
 ### Juego de Rol
 
-[Fotografía de la tarjeta de rol Desarrollador](Desarrollador.jpeg)
-[Fotografía de la tarjeta de rol Cliente](Cliente.jpeg)
-[Fotografía de la tarjeta de rol Validación](Validacion.jpeg)
+- [Fotografía de la tarjeta de rol Desarrollador](Desarrollador.jpeg)
+- [Fotografía de la tarjeta de rol Cliente](Cliente.jpeg)
+- [Fotografía de la tarjeta de rol Validación](Validacion.jpeg)
 
 ### Configuración Previa Realizada
 
-[Captura de la configuración de SSH](ssh.png)
-[Captura de la configuración de GIT con nombre y email](config.png)
+- [Captura de la configuración de SSH](ssh.png)
+- [Captura de la configuración de GIT con nombre y email](config.png)
 
 ### Lista de Comprobación ¿Cumple el problema con lo requerido?
 
