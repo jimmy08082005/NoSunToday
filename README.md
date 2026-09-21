@@ -1,16 +1,16 @@
-# HealthyRoutes
+# Analizador de Sombras
 
 *Proyecto realizado por Jaime Rojas Herrera*
 
 ### Descripción del Problema
 
-Las personas mayores, con movilidad reducida o con algún problema cardiovascular sufren cada día moviéndose por las calles de Granada. Cuando necesitan ir a un lugar desconocido, hacen uso de Google Maps, pensando que la ruta designada será óptima. Y la verdad, probablemente sea la mejor posible, pero no para ellos. Altos desniveles, largas callejuelas sin una pizca de sombra en verano, horas y horas de camino sin bancos o fuentes en las que poder tomar un respiro... En definitiva, Google Maps no se ajusta a estas condiciones adversas que provocan múltiples quebraderos de cabeza para estas minorías desfavorecidas.
+Este verano, caminando por mi pueblo para ir a la panadería, cerca de las 14:00, observé la poca cantidad de zonas con sombra que hay durante mi trayecto. La verdad es que no sé si se podría llegar a la panadería desde otros sitios para aprovechar más zonas cubiertas del sol y así sufrir un poco menos el calor.
 
 ### Juego de Rol
 
-- [Fotografía de la tarjeta de rol Desarrollador](Desarrollador.jpeg)
-- [Fotografía de la tarjeta de rol Cliente](Cliente.jpeg)
-- [Fotografía de la tarjeta de rol Validación](Validacion.jpeg)
+- ![Fotografía de la tarjeta de rol Desarrollador](Desarrollador.jpeg)
+- ![Fotografía de la tarjeta de rol Cliente](Cliente.jpeg)
+- ![Fotografía de la tarjeta de rol Validación](Validacion.jpeg)
 
 ### Configuración Previa Realizada
 
@@ -21,23 +21,23 @@ Las personas mayores, con movilidad reducida o con algún problema cardiovascula
 
 #### ¿Se trata de un problema real del que se tenga conocimiento personal?
 
-Si, este verano se han reportado numerosos golpes de calor que quizás se podrían haber sofocado si siguiesen una ruta ajustada para ellos.
+Sí, yo mismo acuso este problema a la hora de salir a la calle.
 
 #### ¿Se trata de un problema que para solucionar requiera el despliegue de una aplicación en la nube?
 
-Correcto, es necesario recabar en cada momento condicionantes como la temperatura, la posición del sol, obstaculos en la ruta... Todo esto en tiepo real, para poder proporcionar al usuario la mejor ruta posible. De no estar en la nube, actualizar estos datos en tiempo real no sería posible.
+Correcto, lo lógico es que varias personas quieran consultar esta información en un momento puntual. Los procesos de generación de sombras pueden ser pesados y centralizar ese cálculo en un servicio desplegado en la nube es esencial para evitar instalaciones o problemas en cada teléfono/dispositivo que vaya a hacer uso de la aplicación.
 
 #### ¿La solución requiere una cierta cantidad de lógica de negocio, en vez de solucionarse sólo almacenando y buscando?
 
-Efectivamente. En primer lugar se extraen los datos de plataformas como el ayuntamiento de granada, de plataformas de meteorología, incluso del propio Google Maps. Posteriormente estos datos serán analizados y se calcularán, por ejemplo, las zonas de sombra en función de la posición del sol y la altura de los edificios. Se continuará descartando aquellas rutas que, aunque seán las más rápidas, superen un umbral de riesgo (muchas zonas sin sombra, sin bancos o fuentes de agua, con muchos desniveles pronunciados...). Finalmente se generará la mejor ruta posible para evitar riesgos.
+Efectivamente. Habría que analizar que zonas están cubiertas del sol durante el mayor tiempo posible y las horas en las que las zonas de sombra aparecen en ciertas calles. Con esta información, sugerir al usuario rutas alternativas con mayor tiempo de sombra para ir al mismo destino.
 
 #### ¿Se ha incluido la configuración del repositorio y se ha enlazado desde el `README`?
 
-Si, por supuesto. La configuración se encuentra arriba. También se ha enlazado con las fotografías del juego de rol.
+Sí, por supuesto. La configuración se encuentra arriba. También se ha enlazado con las fotografías del juego de rol.
 
 #### ¿El estudiante tiene todos los datos necesarios para poder resolver el problema, o va a requerir que el usuario los introduzca?
 
-Si, el usuario apenas debe introducir datos, tan solo su ubicación y el lugar al que planea ir. Los datos necesarios están en páginas como el ayuntamiento de Granada o el Instituto Geográfico Nacional.
+Sí, con Catastro se pueden descargar todos los datos referentes a la altura de los edificios y la posición del sol se puede saber a partir de la fecha, hora y coordenadas. En OpenStreetMap también se recoge información sobre los edificios y árboles, que se pueden incluir en el cálculo de las sombras. Desniveles o cornisas no se tendrán en cuenta para generar las zonas con sombra.
 
 
 
