@@ -4,11 +4,11 @@
 
 ### Descripción del Problema
 
-Este verano, caminando por mi pueblo para ir a la panadería, cerca de las 14:00, observé la poca cantidad de zonas con sombra que hay durante mi trayecto. La verdad es que no sé si se podría llegar a la panadería desde otros sitios para aprovechar más zonas cubiertas del sol y así sufrir un poco menos el calor.
+Este verano, caminando por mi pueblo para ir a la panadería, cerca de las 14:00, observé la poca cantidad de zonas con sombra que hay durante mi trayecto. La verdad es que no sé si se podría llegar a la panadería desde otros sitios para aprovechar más zonas cubiertas del sol y así sufrir un poco menos el calor. Mi padre, por ejemplo, ya se conoce todas las calles de memoría y sabe por qué callejuelas rondar para encontrar árboles o edificios que le cubran del sol.
 
 ### Juego de Rol
 
-- ![Fotografía de la tarjeta de rol Desarrollador](Desarrollador.jpeg)
+- ![Fotografía de la tarjeta de rol Desarrollador](DesarrolladorX.jpeg)
 - ![Fotografía de la tarjeta de rol Cliente](Cliente.jpeg)
 - ![Fotografía de la tarjeta de rol Validación](Validacion.jpeg)
 
