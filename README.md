@@ -1,4 +1,4 @@
-# Analizador de Sombras
+# NoSunToday
 
 *Proyecto realizado por Jaime Rojas Herrera*
 
