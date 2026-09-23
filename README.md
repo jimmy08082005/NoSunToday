@@ -8,13 +8,13 @@ Este verano, caminando por mi pueblo para ir a la panadería, cerca de las 14:00
 
 ### Juego de Rol
 
-- ![Fotografía de la tarjeta de rol Cliente](Cliente.jpeg)
-- ![Fotografía de la tarjeta de rol Validación](Validacion.jpeg)
+- ![Fotografía de la tarjeta de rol Cliente](IMAGENES/Cliente.jpeg)
+- ![Fotografía de la tarjeta de rol Validación](IMAGENES/Validacion.jpeg)
 
 ### Configuración Previa Realizada
 
-- [Captura de la configuración de SSH](ssh.png)
-- [Captura de la configuración de GIT con nombre y email](config.png)
+- [Captura de la configuración de SSH](IMAGENES/ssh.png)
+- [Captura de la configuración de GIT con nombre y email](IMAGENES/config.png)
 
 ### Lista de Comprobación ¿Cumple el problema con lo requerido?
 
