@@ -8,6 +8,6 @@ Desde la creación de "NoSunToday", mi padre no puede parar de usarla. Cada mañ
 
 ## UJ_02: El calor ya no es problema
 
-Usar "NoSunToday" ha cambiado totalmente esos sufridos periplos en verano a la panadería local. Cuando tengo que ir a comprar el plan, simplemente hago uso de la aplicación introduciendo mi destino. A continuación, un mapa mostrará la ruta que "NoSunToday" ha considerado que mejor me va a proteger frente al sol. La verdad, parece que siguiera las mismas estrategias que mi padre solía seguir para ir a trabajar en verano. Gracias a esto, ya no tendré que sufrir más buscando sombra de forma azarosa, yo no conocía tan bien las calles y las estrategias de mi padre, por lo que "NoSunToday" me viene como anillo al dedo.
+Usar "NoSunToday" ha cambiado totalmente esos sufridos periplos en verano a la panadería local. Cuando tengo que ir a comprar el pan, simplemente hago uso de la aplicación introduciendo mi destino. A continuación, un mapa mostrará la ruta que "NoSunToday" ha considerado que mejor me va a proteger frente al sol. La verdad, parece que siguiera las mismas estrategias que mi padre solía seguir para ir a trabajar en verano. Gracias a esto, ya no tendré que sufrir más buscando sombra de forma azarosa, yo no conocía tan bien las calles y las estrategias de mi padre, por lo que "NoSunToday" me viene como anillo al dedo.
 
 
