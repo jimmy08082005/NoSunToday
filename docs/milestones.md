@@ -2,8 +2,8 @@
 
 ## [M0] Primera Heurística - Datos
 
-Existe un fichero GeoJSON con los datos referentes a las calles de Atarfe y su número de árboles asociado. El archivo contiene todas las calles del pueblo (incluyendo calles peatonales) y el número de árboles en cada una de ellas (0 si no hay ningún árbol). Esta información es contrastada manualmente con un conjunto de calles de las cuales se conoce cuántos árboles tienen. Ahora, con estos datos se puede decidir qué calles pueden evitar mejor el sol.
+Extraer los datos y definir las estructuras que representan el problema de la historia de usuario "HU001". Entregar un fichero con la estructura planteada. Para verificar la validez, se comprueba que la estructura definida reproduce de forma adecuada el problema (calles de Atarfe y número de árboles). Se comparan también los datos con una estimación realizada de forma manual (calles en las que se han contado los árboles).
 
 ## [M1] Primera Heurística - Lógica
 
-Existe un módulo de código que dice si una calle es "buena" o "mala" para resguardarse frente al sol, en función del número de árboles. Para verificar la validez, se comprueban los resultados con un conjunto de calles ya evaluadas por Manuel, el cual considera una calle "buena" si los árboles dan sombra en la mayor parte de la misma. El módulo se construye sobre el fichero obtenido en el milestone 0.
+Se requiere [M0]. La primera heurística consiste en determinar si una calle es capaz de proporcionar sombra en función del número de árboles. Permite solucionar el problema planteado en "HU001". Entregar un módulo que recibe una calle y determina (según la cantidad de árboles) si es adecuada para resguardar del sol, de forma que atienda la necesidad del usuario ("HU001"). Para verificar la validez, se comparan los resultados con un conjunto de calles que se han evaluado manualmente. 
