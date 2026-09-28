@@ -6,4 +6,4 @@ Extraer los datos y definir las estructuras que representan el problema de la hi
 
 ## [M1] Primera Heurística - Lógica
 
-Se requiere [M0]. La primera heurística consiste en determinar si una calle es capaz de proporcionar sombra en función del número de árboles. Permite solucionar el problema planteado en "HU001". Entregar un módulo que recibe una calle y determina (según la cantidad de árboles) si es adecuada para resguardar del sol, de forma que atienda la necesidad del usuario ("HU001"). Para verificar la validez, se comparan los resultados con un conjunto de calles que se han evaluado manualmente. 
+Se requiere [M0]. La primera heurística consiste en determinar si una calle es capaz de proporcionar sombra. Permite solucionar el problema planteado en "HU001". Entregar un módulo que recibe una calle y determina si es adecuada para resguardar del sol, de forma que atienda la necesidad del usuario ("HU001"). Para verificar la validez, se comparan los resultados con un conjunto de calles que se han evaluado manualmente. 
