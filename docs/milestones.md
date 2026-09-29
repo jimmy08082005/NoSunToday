@@ -2,8 +2,10 @@
 
 ## [M0] Primera Heurística - Datos
 
-Extraer los datos y definir las estructuras que representan el problema de la historia de usuario "HU001". Entregar un fichero con la estructura planteada. Para verificar la validez, se comprueba que la estructura definida reproduce de forma adecuada el problema (calles de Atarfe y número de árboles). Se comparan también los datos con una estimación realizada de forma manual (calles en las que se han contado los árboles).
+Representación de las entidades que conforman el dominio del problema, tal y como se plantea en la historia de usuario 1 ([HU_001](historias_usuario.md)). La representación será validada por el product manager, el cual verificará la correcta identificación y modelización de las entidades que engloban el problema.
+
 
 ## [M1] Primera Heurística - Lógica
 
-Se requiere [M0]. La primera heurística consiste en determinar si una calle es capaz de proporcionar sombra. Permite solucionar el problema planteado en "HU001". Entregar un módulo que recibe una calle y determina si es adecuada para resguardar del sol, de forma que atienda la necesidad del usuario ("HU001"). Para verificar la validez, se comparan los resultados con un conjunto de calles que se han evaluado manualmente. 
+Siguiendo la estructura definida en el milestone anterior, implementar funcionalidad que solucione el problema planteado en la historia de usuario 1 ([HU_001](historias_usuario.md)). La representación será validada por el product manager, el cual verificará los resultados obtenidos mediante una comparación con resultados conseguidos mediante una evaluación manual.
+
