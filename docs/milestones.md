@@ -7,5 +7,5 @@ Representación en código de las entidades que conforman el dominio del problem
 
 ## [M1] Primera Heurística - Lógica
 
-Siguiendo la estructura definida en el milestone anterior, implementar funcionalidad que solucione el problema planteado en la historia de usuario 1 ([HU001](historia_usuario.md)). La representación será validada por el product manager, el cual verificará los resultados obtenidos mediante una comparación con resultados conseguidos mediante una evaluación manual.
+Siguiendo la estructura definida en el milestone anterior, implementar funcionalidad que solucione el problema planteado en la historia de usuario 1 ([HU001](historia_usuario.md)). La representación será validada por una serie de tests automáticos que verifican si se produce la salida esperada para una serie de casos conocidos.
 
