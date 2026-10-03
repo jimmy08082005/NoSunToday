@@ -8,13 +8,24 @@ Este verano, caminando por mi pueblo para ir a la panadería, cerca de las 14:00
 
 ### Juego de Rol
 
-- ![Fotografía de la tarjeta de rol Cliente](IMAGENES/Cliente.jpeg)
-- ![Fotografía de la tarjeta de rol Validación](IMAGENES/Validacion.jpeg)
+- [Fotografía de la tarjeta de rol Cliente](IMAGENES/Cliente.jpeg)
+- [Fotografía de la tarjeta de rol Validación](IMAGENES/Validacion.jpeg)
 
 ### Configuración Previa Realizada
 
 - [Captura de la configuración de SSH](IMAGENES/ssh.png)
 - [Captura de la configuración de GIT con nombre y email](IMAGENES/config.png)
+
+### Planificación del Proyecto
+
+- [User Journeys](docs/user_journey.md)
+- [Personas Involucradas](docs/personas.md)
+- [Historias de Usuario](docs/historia_usuario.md)
+- [Milestones](docs/milestones.md)
+
+### Estado del Proyecto
+
+El proyecto aún se encuentra en una etapa muy temprana de su desarrollo (definiendo hitos). Aún no se ha alcanzado el milestone 0.
 
 ### Lista de Comprobación ¿Cumple el problema con lo requerido?
 
