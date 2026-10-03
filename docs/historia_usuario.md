@@ -10,4 +10,4 @@ Consultar [User Journey 2](user_journey.md) para más información
 
 El otro día, hablando con mi hijo, me preguntó sobre las estrategias que seguía cuando quería evitar el sol. Al ir a mi trabajo, suelo buscar calles con un cuantioso número de árboles, pues dan mucha sombra y entre otras, me suelen ayudar al resguardarme del sol. Sin embargo, el pueblo va cambiando y ya no estoy tan seguro de que las calles que suelo frecuentar sean las que más árboles, y por ende más sombra, me proporcionen. Quiero, por tanto, confirmar si efectivamente estoy siguiendo la mejor ruta para evitar el calor en verano. 
 
-Consultar [User Journey 1]1(user_journey.md) para más información
+Consultar [User Journey 1](user_journey.md) para más información
