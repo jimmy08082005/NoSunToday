@@ -8,11 +8,12 @@ var (
 )
 
 type Calle struct {
-	id      string
-	inicio  Coordenada
-	fin     Coordenada
-	tipo    string
-	arboles int
+	id        string
+	inicio    Coordenada
+	fin       Coordenada
+	tipo      string
+	arboles   int
+	edificios []Edificio
 }
 
 func nuevaCalle(id string, inicio, fin Coordenada, tipo string, arboles int) (*Calle, error) {
