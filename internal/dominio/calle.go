@@ -1,34 +1,25 @@
 package dominio
 
 import "errors"
+import "maps"
 
 var (
-	ErrIDVacio          = errors.New("la calle debe tener un identificador")
 	ErrArbolesNegativos = errors.New("el número de árboles no puede ser negativo")
 )
 
 type Calle struct {
-	id        string
-	inicio    Coordenada
-	fin       Coordenada
 	tipo      string
 	arboles   int
-	edificios []Edificio
+	edificios map[Coordenada]Edificio
 }
 
-func nuevaCalle(id string, inicio, fin Coordenada, tipo string, arboles int) (*Calle, error) {
-	if id == "" {
-		return nil, ErrIDVacio
-	}
+func NuevaCalle(tipo string, arboles int, edificios map[Coordenada]Edificio) (*Calle, error) {
 	if arboles < 0 {
 		return nil, ErrArbolesNegativos
 	}
-
 	return &Calle{
-		id:      id,
-		inicio:  inicio,
-		fin:     fin,
-		tipo:    tipo,
-		arboles: arboles,
+		tipo:      tipo,
+		arboles:   arboles,
+		edificios: maps.Clone(edificios),
 	}, nil
 }
