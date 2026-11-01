@@ -1,2 +1,2 @@
 lenguaje: go
-entidad: internal/dominio/calle.go
+entidad: internal/pueblo/calle.go
