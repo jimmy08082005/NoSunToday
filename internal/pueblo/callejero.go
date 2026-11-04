@@ -1,5 +1,7 @@
 package pueblo
 
+type NombreCalle string
+
 type Callejero struct {
-	Calles map[string]Calle
+	Calles map[NombreCalle]Calle
 }
