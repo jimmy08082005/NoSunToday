@@ -1,7 +1,14 @@
 package pueblo
 
+type TipoCalle string
+
+const (
+	Ancha    TipoCalle = "ancha"
+	Estrecha TipoCalle = "estrecha"
+)
+
 type Calle struct {
-	Tipo             string 
+	Tipo             TipoCalle
 	NumeroArboles    uint
 	Inicio           Coordenada
 	Fin              Coordenada
