@@ -7,10 +7,15 @@ const (
 	Estrecha TipoCalle = "estrecha"
 )
 
+type Edificio struct {
+	Plantas   int
+	Ubicacion Coordenada
+}
+
 type Calle struct {
-	Tipo             TipoCalle
-	NumeroArboles    uint
-	Inicio           Coordenada
-	Fin              Coordenada
-	PlantasEdificios []int
+	Tipo          TipoCalle
+	NumeroArboles uint
+	Inicio        Coordenada
+	Fin           Coordenada
+	Edificios     []Edificio
 }
