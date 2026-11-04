@@ -1,7 +1,7 @@
 package pueblo
 
 type Calle struct {
-	Tipo             string
+	Tipo             string 
 	NumeroArboles    uint
 	Inicio           Coordenada
 	Fin              Coordenada
