@@ -7,5 +7,5 @@ Representación en código de las entidades que conforman el dominio del problem
 
 ## [M1] Primera Heurística - Lógica
 
-Siguiendo la estructura definida en el milestone anterior, implementar funcionalidad que solucione el problema planteado en la historia de usuario 2 ([HU002](historia_usuario.md)). La representación será validada por una serie de tests automáticos que comprueban si la funcionalidad implementada mejoran los resultados de un caso base
+Siguiendo la estructura definida en el milestone anterior, implementar funcionalidad que solucione el problema planteado en la historia de usuario 2 ([HU002](historia_usuario.md)). Adicionalmente se debe entregar un fichero que automatice la comprobación de sintaxis de las entidades, así como un fichero dónde se justifique el gestor de dependencias y de tareas que se va a usar en el repositorio. Se debe justificar por qué se decidido usar el gestor de tareas y dependencias elegido.La representación será validada por una serie de tests automáticos que comprueban si la funcionalidad implementada mejoran los resultados de un caso base
 
