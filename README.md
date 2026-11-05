@@ -48,6 +48,3 @@ Sí, por supuesto. La configuración se encuentra arriba. También se ha enlazad
 #### ¿El estudiante tiene todos los datos necesarios para poder resolver el problema, o va a requerir que el usuario los introduzca?
 
 Sí, con Catastro se pueden descargar todos los datos referentes a la altura de los edificios y la posición del sol se puede saber a partir de la fecha, hora y coordenadas. En OpenStreetMap también se recoge información sobre los edificios y árboles, que se pueden incluir en el cálculo de las sombras. Desniveles o cornisas no se tendrán en cuenta para generar las zonas con sombra. Los árboles tienen etiquetas para ver si se encuentran en una calle, lo que facilitaría algo las cosas. La anchura de las calles no está disponible, pero se podría hacer una estimación al saber el tipo o incluso calcularla geométricamente.
-
-
-
