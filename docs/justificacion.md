@@ -12,13 +12,13 @@ Teniendo en cuenta estos aspectos, en primer lugar se ha decidido buscar el est�
 
 Se ha buscado a su vez información sobre otros gestores de dependencias que no sean el estándar, sin embargo todos están obsoletos y recomiendan utilizar Go Modules:
 
-- Godep: La página del repositorio indica que la herramienta ha sido archivada y que se recomienda utilizar dep: ![Captura del repositorio de Godep](IMAGENES/justi1.png)
+- Godep: La página del repositorio indica que la herramienta ha sido archivada y que se recomienda utilizar dep: ![Captura del repositorio de Godep](../IMAGENES/justi1.png)
 
-- gb: Era más bien una herramienta de build alternativa. El repositorio fue archivado el 6 de Marzo de 2020 y ahora es solo de lectura: ![Captura del repositorio de Godep](IMAGENES/justi2.png)
+- gb: Era más bien una herramienta de build alternativa. El repositorio fue archivado el 6 de Marzo de 2020 y ahora es solo de lectura: ![Captura del repositorio de gb](IMAGENES/justi2.png)
 
-- glide: Se utilizaba mucho en su día, pero al igual que las demás dejo de recibir mantenimiento. En su repositorio recomiendan migrar: ![Captura del repositorio de Godep](IMAGENES/justi3.png)
+- glide: Se utilizaba mucho en su día, pero al igual que las demás dejo de recibir mantenimiento. En su repositorio recomiendan migrar: ![Captura del repositorio de glide](../IMAGENES/justi3.png)
 
-- dep: Era más bien un experimento y en la propia documentación oficial indican que lo suyo es utilizar un prototipo alternativo (Go Modules): ![Captura del repositorio de Godep](IMAGENES/justi4.png)
+- dep: Era más bien un experimento y en la propia documentación oficial indican que lo suyo es utilizar un prototipo alternativo (Go Modules): ![Captura del repositorio de dep](../IMAGENES/justi4.png)
 
 Teniendo en cuenta que todas han quedado obsoletas frente a Go Modules, se ha tomado la decisión de utilizar el gestor de dependencias integrado para que todo fluya de la mejor manera.
 
@@ -27,16 +27,16 @@ Teniendo en cuenta que todas han quedado obsoletas frente a Go Modules, se ha to
 Al igual que debemos tener una manera de gestionar las dependencias, es necesaria una forma de gestionar las tareas y automatizar una serie de comandos usados para completar una función. Mientras que Go tiene un gestor de dependencias integrado y mantenido, carece de un gestor de tareas estándar y lo único que tiene es un conjunto de comandos que tratan de cubrir lo que otros lenguajes resuelven con un gestor de tareas propio. Sin embargo, no hay una manera de aunar estas tareas para automatizar acciones como, por ejemplo, ejecutar tests concretos o comprobar la sintaxis de las entidades. Por tanto, se ha buscado información acerca de diferentes gestores de tareas, de los cuales se han seleccionado 3 posibles candidatos:
 
 - make: permite automatizar comandos repetitivos. Su instalación en muchos entornos no es necesaria (viene instalado por defecto). Es la más simple de configurar aunque su sintaxis en ocasiones puede resultar algo liosa. Buscando acerca de este gestor de tareas, encontré un post en Reddit dónde cataloga este gestor como uno de los mejores para este tipo de tareas (https://www.reddit.com/r/golang/comments/5f0st7/preferred_task_manager_for_go_projects/). Se ha hecho una medición del tiempo de instalación en un docker con la imagen de Ubuntu, que no viene por defecto instalado, dando el siguiente resultado:
-![Captura de la medición de make](IMAGENES/justi5.png)
+![Captura de la medición de make](../IMAGENES/justi5.png)
 
 - Task: es una herramienta que la propia documentación de Go trata como un gestor de tareas con el objetivo de ser más simple y sencillo de usar que make (https://pkg.go.dev/github.com/go-task/task). El mayor inconveniente con respecto a make es el proceso de instalación, que es algo más complejo:
-![Captura de la medición de Task](IMAGENES/justi6.png)
+![Captura de la medición de Task](../IMAGENES/justi6.png)
 El binario ocupa 74 MB (mucho más que make) y hay que utilizar estos comandos para añadir /go/bin al PATH:
 echo 'export PATH=$PATH:$HOME/go/bin' >> ~/.bashrc
 source ~/.bashrc
 
 - Just: gestor de tareas estándar de Rust. Al igual que Task, tiene una sintaxis más clara que make, sin embargo, es un binario externo escrito con Rust, por lo que los entornos o colaboradores del proyecto lo tienen que instalar por separado.
-![Captura de la medición de Just](IMAGENES/justi7.png)
+![Captura de la medición de Just](../IMAGENES/justi7.png)
 El tiempo de instalación también es algo más elevado que make y Task.
 
 Aunque todas las opciones son aceptables, siendo todas estables y mantenidas, el hecho de tener que depender de binarios externos tanto para Task como para Just, hace que me decante por utilizar make, pese a tener una sintaxis algo más quisquillosa
