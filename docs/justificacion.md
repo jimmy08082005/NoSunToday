@@ -35,7 +35,14 @@ El tiempo de instalación también es algo más elevado que make y Task.
 En cuanto al tiempo de ejecución, Just tarda lo siguiente:
 ![Captura del tiempo de ejecución de Just](../IMAGENES/justi9.png)
 
-Aunque todas las opciones son aceptables, siendo todas estables y mantenidas, el hecho de tener que depender de binarios externos tanto para Task como para Just, hace que me decante por utilizar make, pese a tener una sintaxis algo más quisquillosa. Además, teniendo en cuenta el importante criterio sobre el tiempo de ejecución, task tarda bastante más que make y just, cuyos ambos gestores de tareas tienen tiempos similares, ligeramente inferiores en make, por lo que otra razón para decidirse por este simple y efectivo gestor.
+- tj/robo: este gestor de tareas tiene una sintaxis nativa en YAML y está diseñado exclusivamente a tareas. El problema principal es que su mantenimiento es escaso a día de hoy. La instalación tampoco viene integrada como make.
+![Captura de la medición de tj/robo](../IMAGENES/justi11.png)
+En cuanto al tiempo de ejecución, tj/robo tarda lo siguiente:
+![Captura del tiempo de ejecución de tj/robo](../IMAGENES/justi11.png)
+
+- go-godo/godo: gestor dónde las tareas se programan directamente en código Go. Al igual que tj/robo, es un programa antiguo con poco mantenimiento. Además su uso requiere generar un directorio nuevo y genera binarios intermedios. Se ha procedido a no instalarlo para evitar problemas con el proyecto.
+
+Aunque todas las opciones son aceptables, siendo todas estables y mantenidas, el hecho de tener que depender de binarios externos tanto para Task como para Just, hace que me decante por utilizar make, pese a tener una sintaxis algo más quisquillosa. Además, teniendo en cuenta el importante criterio sobre el tiempo de ejecución, task tarda bastante más que make y just, cuyos ambos gestores de tareas tienen tiempos similares, ligeramente inferiores en make, por lo que otra razón para decidirse por este simple y efectivo gestor. Se descarta tj/robo y go-godo/godo pues su mantenimiento es deficiente y puede acarrear deuda técnica en el futuro.
 
 
 
