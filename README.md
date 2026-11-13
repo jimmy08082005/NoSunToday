@@ -48,3 +48,17 @@ Sí, por supuesto. La configuración se encuentra arriba. También se ha enlazad
 #### ¿El estudiante tiene todos los datos necesarios para poder resolver el problema, o va a requerir que el usuario los introduzca?
 
 Sí, con Catastro se pueden descargar todos los datos referentes a la altura de los edificios y la posición del sol se puede saber a partir de la fecha, hora y coordenadas. En OpenStreetMap también se recoge información sobre los edificios y árboles, que se pueden incluir en el cálculo de las sombras. Desniveles o cornisas no se tendrán en cuenta para generar las zonas con sombra. Los árboles tienen etiquetas para ver si se encuentran en una calle, lo que facilitaría algo las cosas. La anchura de las calles no está disponible, pero se podría hacer una estimación al saber el tipo o incluso calcularla geométricamente.
+
+### Automatización de Tareas
+
+Este repositorio cuenta con un gestor de dependencias y un gestor de tareas cuya decisión de su uso se ha justificado [aquí](docs/justificacion.md). La automatización de tareas, como las comprobaciones de sintaxis o la ejecución de test se va a llevar a cabo con make. Se han definido una serie de tareas:
+
+- make check -> Se encarga de la comprobación de sintaxis de las entidades. En este caso, las entidad principal de nuestro proyecto es Calle, que se compone por el tipo de calle que es (ancha o estrecha), el número de árboles en la calle, el principio y fin, así como los edificios y las plantas que tienen cada uno. Esta entidad es gestionada por su única fuente de verdad, Callejero. El propósito de esta entidad es representar las calles de mi pueblo, Atarfe, con todos los datos necesarios para saber si esa calle son buenas para resguardar del sol. Al final estas calles serán evaluadas en función de sus diferentes parámetros para saber que conjunto de calles tomar para ir al destino que el usuario ha solicitado.
+
+- make installdeps -> Instala las dependencias definidas en go.mod.
+
+- make test -> Ejecuta los tests definidos en el repositorio.
+
+
+
+
