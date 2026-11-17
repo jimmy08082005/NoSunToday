@@ -6,7 +6,6 @@ Teniendo en cuenta estos aspectos, en primer lugar se ha decidido buscar el est�
 
 La decisión sobre el gestor de tareas depende de los siguientes criterios:
 
-- Instalación sencilla. Sin binarios de gran tamaño y que dependan de otras herramientas/programas.
 - Tiempo de instalación. No es demasiado importante, pero un tiempo de instalación exagerado no es admisible.
 - Tiempo de ejecución. Las tareas deben ejecutarse en el menor tiempo posible, el gestor de tareas debe ser rápido y eficiente.
 - Deuda técnica. La herramienta debe estar mantenida en la actualidad, una herramienta sin mantenimiento puede conllevar deuda técnica en el futuro.
