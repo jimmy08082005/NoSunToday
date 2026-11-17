@@ -4,7 +4,7 @@ Teniendo en cuenta estos aspectos, en primer lugar se ha decidido buscar el est�
 
 # Gestor de Tareas
 
-Al igual que debemos tener una manera de gestionar las dependencias, es necesaria una forma de gestionar las tareas y automatizar una serie de comandos usados para completar una función. Mientras que Go tiene un gestor de dependencias integrado y mantenido, carece de un gestor de tareas estándar y lo único que tiene es un conjunto de comandos que tratan de cubrir lo que otros lenguajes resuelven con un gestor de tareas propio. Sin embargo, no hay una manera de aunar estas tareas para automatizar acciones como, por ejemplo, ejecutar tests concretos o comprobar la sintaxis de las entidades. La decisión sobre el gestor de tareas depende de los siguientes criterios:
+La decisión sobre el gestor de tareas depende de los siguientes criterios:
 
 - Instalación sencilla. Sin binarios de gran tamaño y que dependan de otras herramientas/programas.
 - Tiempo de instalación. No es demasiado importante, pero un tiempo de instalación exagerado no es admisible.
