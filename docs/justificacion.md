@@ -35,6 +35,26 @@ En cuanto al tiempo de ejecución, tj/robo tarda lo siguiente:
 
 Aunque todas las opciones son aceptables, siendo todas estables y mantenidas, el hecho de tener que depender de binarios externos tanto para Task como para Just, hace que me decante por utilizar make, pese a tener una sintaxis algo más quisquillosa. Además, teniendo en cuenta el importante criterio sobre el tiempo de ejecución, task tarda bastante más que make y just, cuyos ambos gestores de tareas tienen tiempos similares, ligeramente inferiores en make, por lo que otra razón para decidirse por este simple y efectivo gestor. Se descarta tj/robo pues es un proyecto algo antiguo.
 
+# Herramientas para Tests
+
+Para elegir las herramientas para tests, se siguen los siguientes criterios:
+
+- No escribe en el directorio de fuentes. Se pide como requisito para el siguiente objetivo. Si escribe en el directorio en el que están los fuentes, debe poder configurarse para escribir en otro lugar dónde haya permiso.
+
+- Dependencias. Si la biblioteca supone añadir demasiadas dependencias, esto impacta en el rendimiento del proyecto y puede ser un problema
+
+- Ejecución en línea de comandos.
+
+Go incorpora de forma nativa un Test Runner llamado testing y el comando "go test" para ejecutar los ficheros con "_test.go" que incorporan los tests sobre un paquete en específico. Testing no tiene aserciones como tal, por lo que las comparaciones se hacen de forma manual, es decir, la aserción sería un if que compara y llama a "t.Errorf" si no se cumple. La ventaja es poder prescindir de dependencias externas y que "testing" no escribe ningún lockfile ni fichero en el directorio de fuentes (sí en otros sitios, que se pueden gestionar y controlar)
+
+- testify. Una de las bibliotecas de testing más usadas en Go. Es necesario instalarla con "go get" y se compone de varios paquetes, entre los que incluye "assert", aserciones que, al fallar, marcan el test como fallido pero continúan. El problema es que arrastra dependencias como go-spew, go-difflib y yaml.v3. No escribe tampoco en el directorio de fuentes. Es menos explícita que simplemente usar testing de forma manual.
+
+- Ginkgo y Gomega. Gomega es una Biblioteca de "matchers" que viene emparejada con Ginkgo (Test Runner) dónde las aserciones se pueden leer como frases (Expect(x).To(Matcher)). Es mucho más complejo de entender que testify o testing y nuevamente arrastra varias dependencias. No escribe en el directorio de fuentes. Ginkgo, por su parte, es un Test Runner que habría que instalar adicionalmente y trae también varias dependencias consigo. Es muy buena para BDD
+
+Se decide finalmente optar por no incluir una biblioteca de aserciones y utilizar testing para las comprobaciones, de manera explícita y controlada, para evitar así añadir dependencias e instalaciones que otros colaboradores tendrán que seguir para implementar los tests. Ginkgo puede ser demasiado para este proyecto.
+
+
+
 
 
 
