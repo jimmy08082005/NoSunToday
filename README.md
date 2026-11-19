@@ -57,8 +57,6 @@ Este repositorio cuenta con un gestor de dependencias y un gestor de tareas cuya
 
 - make installdeps -> Instala las dependencias definidas en go.mod.
 
-- make test -> Ejecuta los tests definidos en el repositorio.
-
 
 
 
