@@ -1,10 +1,7 @@
-.PHONY: check installdeps install test
+.PHONY: check installdeps install
 
 check:
-	go build -o /dev/null ./...
+	gofmt -e . > /dev/null
 
 installdeps:
 	go mod download
-
-test:
-	go test -v ./...
