@@ -7,7 +7,10 @@ import (
 
 const densidadSombraCompleta = 0.1
 
-var ErrTramoLongitudCero = errors.New("no se puede calcular la frondosidad de un tramo con longitud cero")
+var (
+	ErrTramoLongitudCero  = errors.New("no se puede calcular la frondosidad de un tramo con longitud cero")
+	ErrPesoSombraInvalido = errors.New("el peso de la sombra debe estar en el intervalo [0, 1)")
+)
 
 type TipoCalle string
 
@@ -43,4 +46,14 @@ func (t Tramo) Frondosidad() (float64, error) {
 	indice := densidad / densidadSombraCompleta
 
 	return math.Min(1.0, indice), nil
+}
+
+const factorSombra = 0.65
+
+func (t Tramo) Coste() (float64, error) {
+	frondosidad, err := t.Frondosidad()
+	if err != nil {
+	}
+
+	return t.Longitud() * (1.0 - factorSombra*frondosidad), nil
 }
