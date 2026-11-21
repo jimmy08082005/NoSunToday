@@ -59,6 +59,10 @@ Este repositorio cuenta con un gestor de dependencias y un gestor de tareas cuya
 
 - make test -> Ejecuta los tests definidos en el repositorio.
 
+### Herramientas de Tests
+
+Las herramientas de tests se justifican [aquí](docs/justificacion.md). Se ha decidido utilizar "testing", el Test Runner nativo y estándar de Go.
+
 
 
 
