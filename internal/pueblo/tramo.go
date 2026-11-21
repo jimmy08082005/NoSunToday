@@ -53,6 +53,7 @@ const factorSombra = 0.65
 func (t Tramo) Coste() (float64, error) {
 	frondosidad, err := t.Frondosidad()
 	if err != nil {
+		return 0, err
 	}
 
 	return t.Longitud() * (1.0 - factorSombra*frondosidad), nil

@@ -31,7 +31,6 @@ func CargarCalles(r io.Reader) (Callejero, error) {
 	nodos := make(map[int64]Coordenada)
 	var arboles []Coordenada
 	var vias []elementoOSM
-	usoNodos := make(map[int64]int)
 
 	for _, el := range datos.Elements {
 		switch el.Type {
@@ -44,9 +43,6 @@ func CargarCalles(r io.Reader) (Callejero, error) {
 		case "way":
 			if esViaPeatonalValida(el.Tags) {
 				vias = append(vias, el)
-				for _, nodeID := range el.Nodes {
-					usoNodos[nodeID]++
-				}
 			}
 		}
 	}
@@ -58,26 +54,18 @@ func CargarCalles(r io.Reader) (Callejero, error) {
 		}
 
 		nombre := NombreCalle(via.Tags["name"])
-		inicioIdx := 0
 
 		for i := 1; i < len(via.Nodes); i++ {
-			nodeID := via.Nodes[i]
-			esInterseccion := usoNodos[nodeID] > 1
-			esFinal := i == len(via.Nodes)-1
+			coordInicio, okInicio := nodos[via.Nodes[i-1]]
+			coordFin, okFin := nodos[via.Nodes[i]]
 
-			if esInterseccion || esFinal {
-				coordInicio, okInicio := nodos[via.Nodes[inicioIdx]]
-				coordFin, okFin := nodos[nodeID]
-
-				if okInicio && okFin && coordInicio != coordFin {
-					calle := calles[nombre]
-					calle.Tramos = append(calle.Tramos, Tramo{
-						Inicio: coordInicio,
-						Fin:    coordFin,
-					})
-					calles[nombre] = calle
-				}
-				inicioIdx = i
+			if okInicio && okFin && coordInicio != coordFin {
+				calle := calles[nombre]
+				calle.Tramos = append(calle.Tramos, Tramo{
+					Inicio: coordInicio,
+					Fin:    coordFin,
+				})
+				calles[nombre] = calle
 			}
 		}
 	}

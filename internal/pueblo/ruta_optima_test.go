@@ -201,7 +201,7 @@ func TestMejoraSobreCasoBase(t *testing.T) {
 			]
 		}`
 
-		callejero, err := CargarCallejeroDesdeOSM(strings.NewReader(jsonOSM))
+		callejero, err := CargarCalles(strings.NewReader(jsonOSM))
 		if err != nil {
 			t.Fatalf("error cargando datos OSM: %v", err)
 		}
@@ -266,8 +266,8 @@ func TestCalcularRutaErrores(t *testing.T) {
 						Fin:    Coordenada{Latitud: 37.2230, Longitud: -3.6880},
 					}}},
 					"Destino": {Tramos: []Tramo{{
-						Inicio: Coordenada{Latitud: 37.2230, Longitud: -3.6880},
-						Fin:    Coordenada{Latitud: 37.2240, Longitud: -3.6880},
+						Inicio: Coordenada{Latitud: 37.2240, Longitud: -3.6880},
+						Fin:    Coordenada{Latitud: 37.2250, Longitud: -3.6880},
 					}}},
 				},
 			},
