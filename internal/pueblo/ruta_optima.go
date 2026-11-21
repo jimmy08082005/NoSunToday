@@ -16,10 +16,6 @@ func generarGrafo(callejero Callejero) map[Coordenada]map[NombreCalle][]Tramo {
 
 	for nombre, calle := range callejero.Calles {
 		for _, tramo := range calle.Tramos {
-			if tramo.Inicio == tramo.Fin {
-				continue
-			}
-
 			if grafo[tramo.Inicio] == nil {
 				grafo[tramo.Inicio] = make(map[NombreCalle][]Tramo)
 			}
