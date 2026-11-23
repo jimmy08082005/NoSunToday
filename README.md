@@ -55,8 +55,6 @@ Este repositorio cuenta con un gestor de dependencias y un gestor de tareas cuya
 
 - make check -> Se encarga de la comprobación de sintaxis de las entidades. En este caso, las entidad principal de nuestro proyecto es Calle, que se compone por el tipo de calle que es (ancha o estrecha), el número de árboles en la calle, el principio y fin, así como los edificios y las plantas que tienen cada uno. Esta entidad es gestionada por su única fuente de verdad, Callejero. El propósito de esta entidad es representar las calles de mi pueblo, Atarfe, con todos los datos necesarios para saber si esa calle son buenas para resguardar del sol. Al final estas calles serán evaluadas en función de sus diferentes parámetros para saber que conjunto de calles tomar para ir al destino que el usuario ha solicitado.
 
-- make installdeps -> Instala las dependencias definidas en go.mod.
-
 
 
 
