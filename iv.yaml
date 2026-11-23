@@ -1,2 +1,5 @@
 lenguaje: go
 entidad: internal/pueblo/callejero.go
+automatizar:
+ fichero: Makefile
+ orden: make
