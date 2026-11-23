@@ -1,4 +1,7 @@
-.PHONY: check installdeps install
+.PHONY: check installdeps install test
 
 check:
-	gofmt -e . > /dev/null
+	go build -o /dev/null ./...
+
+test:
+	go test -v ./...
