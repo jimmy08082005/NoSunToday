@@ -11,33 +11,13 @@ var (
 	ErrRutaNoEncontrada   = errors.New("no existe un camino conectado entre la calle de origen y la de destino")
 )
 
-func generarGrafo(callejero Callejero) map[Coordenada]map[NombreCalle][]Tramo {
-	grafo := make(map[Coordenada]map[NombreCalle][]Tramo)
-
-	for nombre, calle := range callejero.Calles {
-		for _, tramo := range calle.Tramos {
-			if grafo[tramo.Inicio] == nil {
-				grafo[tramo.Inicio] = make(map[NombreCalle][]Tramo)
-			}
-			grafo[tramo.Inicio][nombre] = append(grafo[tramo.Inicio][nombre], tramo)
-
-			if grafo[tramo.Fin] == nil {
-				grafo[tramo.Fin] = make(map[NombreCalle][]Tramo)
-			}
-			grafo[tramo.Fin][nombre] = append(grafo[tramo.Fin][nombre], tramo)
-		}
-	}
-
-	return grafo
-}
-
-func CalcularRuta(callejero Callejero, origen, destino NombreCalle) (Callejero, error) {
-	calleOrigen, okOrigen := callejero.Calles[origen]
+func (c Callejero) CalcularRuta(origen, destino NombreCalle) (Callejero, error) {
+	calleOrigen, okOrigen := c.Calles[origen]
 	if !okOrigen || len(calleOrigen.Tramos) == 0 {
 		return Callejero{}, fmt.Errorf("%w: %s", ErrCalleNoEncontrada, origen)
 	}
 
-	calleDestino, okDestino := callejero.Calles[destino]
+	calleDestino, okDestino := c.Calles[destino]
 	if !okDestino || len(calleDestino.Tramos) == 0 {
 		return Callejero{}, fmt.Errorf("%w: %s", ErrCalleNoEncontrada, destino)
 	}
@@ -50,7 +30,7 @@ func CalcularRuta(callejero Callejero, origen, destino NombreCalle) (Callejero, 
 		}, nil
 	}
 
-	grafo := generarGrafo(callejero)
+	grafo := c.generarGrafo()
 
 	nodosDestino := make(map[Coordenada]bool)
 	for _, tramo := range calleDestino.Tramos {
@@ -80,7 +60,7 @@ func CalcularRuta(callejero Callejero, origen, destino NombreCalle) (Callejero, 
 		}
 
 		if nodosDestino[actual.coord] {
-			return reconstruirCallejeroRuta(callejero, origen, destino, actual.coord, previos), nil
+			return c.reconstruirCallejeroRuta(origen, destino, actual.coord, previos), nil
 		}
 
 		for nombreCalle, tramos := range grafo[actual.coord] {
@@ -114,13 +94,33 @@ func CalcularRuta(callejero Callejero, origen, destino NombreCalle) (Callejero, 
 	return Callejero{}, ErrRutaNoEncontrada
 }
 
+func (c Callejero) generarGrafo() map[Coordenada]map[NombreCalle][]Tramo {
+	grafo := make(map[Coordenada]map[NombreCalle][]Tramo)
+
+	for nombre, calle := range c.Calles {
+		for _, tramo := range calle.Tramos {
+			if grafo[tramo.Inicio] == nil {
+				grafo[tramo.Inicio] = make(map[NombreCalle][]Tramo)
+			}
+			grafo[tramo.Inicio][nombre] = append(grafo[tramo.Inicio][nombre], tramo)
+
+			if grafo[tramo.Fin] == nil {
+				grafo[tramo.Fin] = make(map[NombreCalle][]Tramo)
+			}
+			grafo[tramo.Fin][nombre] = append(grafo[tramo.Fin][nombre], tramo)
+		}
+	}
+
+	return grafo
+}
+
 type pasoPrevio struct {
 	desde Coordenada
 	calle NombreCalle
 	tramo Tramo
 }
 
-func reconstruirCallejeroRuta(callejero Callejero, origen, destino NombreCalle, meta Coordenada, previos map[Coordenada]pasoPrevio) Callejero {
+func (c Callejero) reconstruirCallejeroRuta(origen, destino NombreCalle, meta Coordenada, previos map[Coordenada]pasoPrevio) Callejero {
 	var pasos []pasoPrevio
 	actual := meta
 
@@ -143,10 +143,10 @@ func reconstruirCallejeroRuta(callejero Callejero, origen, destino NombreCalle, 
 	}
 
 	if _, ok := callesRuta[origen]; !ok {
-		callesRuta[origen] = callejero.Calles[origen]
+		callesRuta[origen] = c.Calles[origen]
 	}
 	if _, ok := callesRuta[destino]; !ok {
-		callesRuta[destino] = callejero.Calles[destino]
+		callesRuta[destino] = c.Calles[destino]
 	}
 
 	return Callejero{Calles: callesRuta}

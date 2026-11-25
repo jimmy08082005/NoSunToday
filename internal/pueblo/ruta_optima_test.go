@@ -51,7 +51,7 @@ func crearCallejeroDePrueba() Callejero {
 func rutaBasePorDistancia(callejero Callejero, origen, destino NombreCalle) (Callejero, error) {
 	calleOrigen := callejero.Calles[origen]
 	calleDestino := callejero.Calles[destino]
-	grafo := generarGrafo(callejero)
+	grafo := callejero.generarGrafo()
 
 	nodosDestino := make(map[Coordenada]bool)
 	for _, tramo := range calleDestino.Tramos {
@@ -79,7 +79,7 @@ func rutaBasePorDistancia(callejero Callejero, origen, destino NombreCalle) (Cal
 			continue
 		}
 		if nodosDestino[actual.coord] {
-			return reconstruirCallejeroRuta(callejero, origen, destino, actual.coord, previos), nil
+			return callejero.reconstruirCallejeroRuta(origen, destino, actual.coord, previos), nil
 		}
 		for nombreCalle, tramos := range grafo[actual.coord] {
 			for _, tramo := range tramos {
@@ -134,7 +134,7 @@ func TestMejoraSobreCasoBase(t *testing.T) {
 			t.Fatalf("error calculando ruta base: %v", err)
 		}
 
-		rutaOptima, err := CalcularRuta(callejero, "Calle Origen", "Calle Destino")
+		rutaOptima, err := callejero.CalcularRuta("Calle Origen", "Calle Destino")
 		if err != nil {
 			t.Fatalf("error calculando ruta optima: %v", err)
 		}
@@ -163,7 +163,7 @@ func TestMejoraSobreCasoBase(t *testing.T) {
 			t.Fatalf("error calculando ruta base: %v", err)
 		}
 
-		rutaOptima, err := CalcularRuta(callejero, "Calle Origen", "Calle Destino")
+		rutaOptima, err := callejero.CalcularRuta("Calle Origen", "Calle Destino")
 		if err != nil {
 			t.Fatalf("error calculando ruta optima: %v", err)
 		}
@@ -211,7 +211,7 @@ func TestMejoraSobreCasoBase(t *testing.T) {
 			t.Fatalf("error calculando ruta base: %v", err)
 		}
 
-		rutaOptima, err := CalcularRuta(callejero, "Calle Inicio", "Calle Meta")
+		rutaOptima, err := callejero.CalcularRuta("Calle Inicio", "Calle Meta")
 		if err != nil {
 			t.Fatalf("error calculando ruta optima: %v", err)
 		}
@@ -279,7 +279,7 @@ func TestCalcularRutaErrores(t *testing.T) {
 
 	for _, tc := range casos {
 		t.Run(tc.nombre, func(t *testing.T) {
-			_, err := CalcularRuta(tc.callejero, tc.origen, tc.destino)
+			_, err := tc.callejero.CalcularRuta(tc.origen, tc.destino)
 			if !errors.Is(err, tc.errorEsperado) {
 				t.Errorf("error incorrecto: obtenido %v, esperado %v", err, tc.errorEsperado)
 			}
