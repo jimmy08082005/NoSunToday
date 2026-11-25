@@ -37,19 +37,47 @@ Aunque todas las opciones son aceptables, siendo todas estables y mantenidas, el
 
 # Herramientas para Tests
 
-Para elegir las herramientas para tests, se siguen los siguientes criterios:
+## Biblioteca de Aserciones
+
+Para elegir la biblioteca de aserciones, se siguen los siguientes criterios:
 
 - Dependencias. Si la biblioteca supone añadir demasiadas dependencias, esto impacta en el rendimiento del proyecto y puede ser un problema
 
-- Ejecución en línea de comandos.
+- Tiempo de Instalación.
 
-Go incorpora de forma nativa un Test Runner llamado testing y el comando "go test" para ejecutar los ficheros con "_test.go" que incorporan los tests sobre un paquete en específico. Testing no tiene aserciones como tal, por lo que las comparaciones se hacen de forma manual, es decir, la aserción sería un if que compara y llama a "t.Errorf" si no se cumple. La ventaja es poder prescindir de dependencias externas y que "testing" no escribe ningún lockfile ni fichero en el directorio de fuentes (sí en otros sitios, que se pueden gestionar y controlar)
+Opciones:
 
-- testify. Una de las bibliotecas de testing más usadas en Go. Es necesario instalarla con "go get" y se compone de varios paquetes, entre los que incluye "assert", aserciones que, al fallar, marcan el test como fallido pero continúan. El problema es que arrastra dependencias como go-spew, go-difflib y yaml.v3. No escribe tampoco en el directorio de fuentes. Es menos explícita que simplemente usar testing de forma manual.
+- "Simular" aserciones. Testing, el framework nativo que usa Go para escribir los tests, no dispone como tal de una biblioteca de aserciones, aunque es posible hacer las comparacions de forma manual, es decir, la aserción sería un if que compara y llama a "t.Errorf" si no se cumple. No requiere dependencias y no tiene tiempo de instalación pues no es necesario instalar nada más.
 
-- Ginkgo y Gomega. Gomega es una Biblioteca de "matchers" que viene emparejada con Ginkgo (Test Runner) dónde las aserciones se pueden leer como frases (Expect(x).To(Matcher)). Es mucho más complejo de entender que testify o testing y nuevamente arrastra varias dependencias. No escribe en el directorio de fuentes. Ginkgo, por su parte, es un Test Runner que habría que instalar adicionalmente y trae también varias dependencias consigo. Es muy buena para BDD
+- testify. Funciona tanto como para escribir los tests como para usarse como biblioteca de aserciones. Se instala con "go get" y esta compuesta de varios paquetes, siendo "assert" el paquete que incluye las aserciones. Requiere de dependencias externas y el tiempo que tarda en instalarse es el siguiente:
+![Captura del tiempo de instalación de testify](../IMAGENES/justi13.png)
 
-Se decide finalmente optar por no incluir una biblioteca de aserciones y utilizar testing para las comprobaciones, de manera explícita y controlada, para evitar así añadir dependencias e instalaciones que otros colaboradores tendrán que seguir para implementar los tests. Ginkgo puede ser demasiado para este proyecto. Como nota adicional "go test" no escribe en el directorio de fuentes, tan solo en una caché fuera del repositorio (GOCACHE)
+- Gomega. Gomega es una Biblioteca de "matchers" que viene emparejada con Ginkgo (Test Runner) dónde las aserciones se pueden leer como frases (Expect(x).To(Matcher)). Requiere de dependecias y el tiempo que tarda en instalarse es el siguiente:
+![Captura del tiempo de instalación de Gomega](../IMAGENES/justi14.png)
+
+La decisión final es utilizar testify para escribir las comparaciones y prescindir de una biblioteca adicional que necesite de dependencias y un tiempo de instalación. En Gomega por ejemplo es de 2 segundos, algo de lo que se puede prescindir perfectamente para no comprometer el rendimiento.
+
+## Herramientas CLI
+
+Se decide utilizar el estándar de Go, "go test", el cúal además es compatible con todos los frameworks que se van a ver a continuación. Se han visto otras alternativas que aportan sobre "go test", como gotestsum que devuelve una salida legible, ginkgo watch que da Feedback rápido al desarrollar, ginkgo CLI que reparte los procesos paralelamente y gocov o go-carpet que devuelve informes más detallados sobre el testeo, Sin embargo, el requerir de tiempo de instalación y de tener que gestionar dependencias externas hace que el valor aportado no merezca la pena, por lo que se acaba optando por "go test".
+
+## Test Runner
+
+Para elegir el Test Runner, se siguen los siguientes criterios:
+
+- Dependencias.
+
+- Tiempo de Instalación.
+
+- Testing. Framework nativo y estándar de Go. No requiere de tiempo de instalación adicional. Se usa el comando "go test" para ejecutar los ficheros con "_test.go" que incorporan los tests sobre un paquete en específico.
+
+- Ginkgo. Es un Test Runner que habría que instalar adicionalmente y trae también varias dependencias consigo. Es un framework BDD (desarrollo guiado por comportamiento) completo. El tiempo de instalación es el siguiente:
+![Captura del tiempo de instalación de Ginkgo](../IMAGENES/justi15.png)
+
+- franela/goblin. Framework minimalista, inspirado en Mocha, que añade sobre Testing. El tiempo de instalación es el siguiente:
+![Captura del tiempo de instalación de franela/goblin](../IMAGENES/justi16.png)
+
+Se decide finalmente utilizar testing como el Test Runner, es el estándar de Go, no necesita instalar nada por lo que el tiempo de instalación es nulo. Como nota adicional "go test" no escribe en el directorio de fuentes, tan solo en una caché fuera del repositorio (GOCACHE)
 
 
 
