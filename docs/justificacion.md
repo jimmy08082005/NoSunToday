@@ -39,8 +39,6 @@ Aunque todas las opciones son aceptables, siendo todas estables y mantenidas, el
 
 Para elegir las herramientas para tests, se siguen los siguientes criterios:
 
-- No escribe en el directorio de fuentes. Se pide como requisito para el siguiente objetivo. Si escribe en el directorio en el que están los fuentes, debe poder configurarse para escribir en otro lugar dónde haya permiso.
-
 - Dependencias. Si la biblioteca supone añadir demasiadas dependencias, esto impacta en el rendimiento del proyecto y puede ser un problema
 
 - Ejecución en línea de comandos.
@@ -51,7 +49,7 @@ Go incorpora de forma nativa un Test Runner llamado testing y el comando "go tes
 
 - Ginkgo y Gomega. Gomega es una Biblioteca de "matchers" que viene emparejada con Ginkgo (Test Runner) dónde las aserciones se pueden leer como frases (Expect(x).To(Matcher)). Es mucho más complejo de entender que testify o testing y nuevamente arrastra varias dependencias. No escribe en el directorio de fuentes. Ginkgo, por su parte, es un Test Runner que habría que instalar adicionalmente y trae también varias dependencias consigo. Es muy buena para BDD
 
-Se decide finalmente optar por no incluir una biblioteca de aserciones y utilizar testing para las comprobaciones, de manera explícita y controlada, para evitar así añadir dependencias e instalaciones que otros colaboradores tendrán que seguir para implementar los tests. Ginkgo puede ser demasiado para este proyecto.
+Se decide finalmente optar por no incluir una biblioteca de aserciones y utilizar testing para las comprobaciones, de manera explícita y controlada, para evitar así añadir dependencias e instalaciones que otros colaboradores tendrán que seguir para implementar los tests. Ginkgo puede ser demasiado para este proyecto. Como nota adicional "go test" no escribe en el directorio de fuentes, tan solo en una caché fuera del repositorio (GOCACHE)
 
 
 
