@@ -41,43 +41,59 @@ Aunque todas las opciones son aceptables, siendo todas estables y mantenidas, el
 
 Para elegir la biblioteca de aserciones, se siguen los siguientes criterios:
 
-- Dependencias. Si la biblioteca supone añadir demasiadas dependencias, esto impacta en el rendimiento del proyecto y puede ser un problema
-
-- Tiempo de Instalación.
+- Tiempo de Ejecución.
 
 Opciones:
 
-- "Simular" aserciones. Testing, el framework nativo que usa Go para escribir los tests, no dispone como tal de una biblioteca de aserciones, aunque es posible hacer las comparacions de forma manual, es decir, la aserción sería un if que compara y llama a "t.Errorf" si no se cumple. No requiere dependencias y no tiene tiempo de instalación pues no es necesario instalar nada más.
+- "Simular" aserciones. Testing, el framework nativo que usa Go para escribir los tests, no dispone como tal de una biblioteca de aserciones, aunque es posible hacer las comparacions de forma manual, es decir, la aserción sería un if que compara y llama a "t.Errorf" si no se cumple. No requiere dependencias. El tiempo de ejecución es el siguiente:
+![Captura del tiempo de ejecución de testing](../IMAGENES/justi13.png)
 
-- testify. Funciona tanto como para escribir los tests como para usarse como biblioteca de aserciones. Se instala con "go get" y esta compuesta de varios paquetes, siendo "assert" el paquete que incluye las aserciones. Requiere de dependencias externas y el tiempo que tarda en instalarse es el siguiente:
-![Captura del tiempo de instalación de testify](../IMAGENES/justi13.png)
+- testify. Funciona tanto como para escribir los tests como para usarse como biblioteca de aserciones. Se instala con "go get" y esta compuesta de varios paquetes, siendo "assert" el paquete que incluye las aserciones. Requiere de dependencias externas y el tiempo de ejecución es el siguiente:
+![Captura del tiempo de ejecución de testify](../IMAGENES/justi14.png)
 
-- Gomega. Gomega es una Biblioteca de "matchers" que viene emparejada con Ginkgo (Test Runner) dónde las aserciones se pueden leer como frases (Expect(x).To(Matcher)). Requiere de dependecias y el tiempo que tarda en instalarse es el siguiente:
-![Captura del tiempo de instalación de Gomega](../IMAGENES/justi14.png)
+- Gomega. Gomega es una Biblioteca de "matchers" que viene emparejada con Ginkgo (Test Runner) dónde las aserciones se pueden leer como frases (Expect(x).To(Matcher)). Requiere de dependecias y el tiempo de ejecución es el siguiente:
+![Captura del tiempo de ejecución de Gomega](../IMAGENES/justi15.png)
 
-La decisión final es utilizar testify para escribir las comparaciones y prescindir de una biblioteca adicional que necesite de dependencias y un tiempo de instalación. En Gomega por ejemplo es de 2 segundos, algo de lo que se puede prescindir perfectamente para no comprometer el rendimiento.
+La decisión final es utilizar testing para escribir las comparaciones y prescindir de una biblioteca adicional que necesite de dependencias (como con testify) y el tiempo de ejecución con Gomega es algo mayor, por lo que testing me parece la mejor opción para este proyecto.
 
 ## Herramientas CLI
 
-Se decide utilizar el estándar de Go, "go test", el cúal además es compatible con todos los frameworks que se van a ver a continuación. Se han visto otras alternativas que aportan sobre "go test", como gotestsum que devuelve una salida legible, ginkgo watch que da Feedback rápido al desarrollar, ginkgo CLI que reparte los procesos paralelamente y gocov o go-carpet que devuelve informes más detallados sobre el testeo, Sin embargo, el requerir de tiempo de instalación y de tener que gestionar dependencias externas hace que el valor aportado no merezca la pena, por lo que se acaba optando por "go test".
+Para elegir la herramienta para ejecutar los tests, se siguen los siguientes criterios:
 
-## Test Runner
+- Tiempo de Ejecución.
+
+Opciones:
+
+- "Go test". El estándar de Go, viene al instalar el lenguaje. Es compatible con los frameworks que se han barajado como candidatos y el tiempo de ejecución es el siguiente:
+![Captura del tiempo de ejecución de testing](../IMAGENES/justi13.png)
+
+- "Ginkgo -v". El CLI de Ginkgo. Es legible y la información se entiende adecuadamente. El tiempo de ejecución es el siguiente:
+![Captura del tiempo de ejecución de Gingkgo](../IMAGENES/justig.png)
+
+- "gotestsum --format testname ./...". Es parecido a "go test" pero más legible. El tiempo de ejecución es el siguiente:
+![Captura del tiempo de ejecución de Gingkgo](../IMAGENES/justigo.png)
+Eso sí, tarda en instalarse cerca de 6 segundos.
+
+Se decide utilizar "go test", el cúal además es compatible con todos los frameworks que se van a ver a continuación. Gingko tarda más y tampoco compensa el estructurado de la información y gotestsum tarda lo mismo pero el tiempo de instalación en este caso concreto no compensa.
+
+## Framework
 
 Para elegir el Test Runner, se siguen los siguientes criterios:
 
-- Dependencias.
+- Tiempo de Ejecución.
 
-- Tiempo de Instalación.
+Opciones:
 
-- Testing. Framework nativo y estándar de Go. No requiere de tiempo de instalación adicional. Se usa el comando "go test" para ejecutar los ficheros con "_test.go" que incorporan los tests sobre un paquete en específico.
+- Testing. Framework nativo y estándar de Go. No requiere de tiempo de instalación adicional. Se usa el comando "go test" para ejecutar los ficheros con "_test.go" que incorporan los tests sobre un paquete en específico. El tiempo de ejecución es el siguiente:
+![Captura del tiempo de ejecución de testing](../IMAGENES/justi13.png)
 
 - Ginkgo. Es un Test Runner que habría que instalar adicionalmente y trae también varias dependencias consigo. Es un framework BDD (desarrollo guiado por comportamiento) completo. El tiempo de instalación es el siguiente:
-![Captura del tiempo de instalación de Ginkgo](../IMAGENES/justi15.png)
+![Captura del tiempo de instalación de Ginkgo](../IMAGENES/justi16.png)
 
 - franela/goblin. Framework minimalista, inspirado en Mocha, que añade sobre Testing. El tiempo de instalación es el siguiente:
-![Captura del tiempo de instalación de franela/goblin](../IMAGENES/justi16.png)
+![Captura del tiempo de instalación de franela/goblin](../IMAGENES/justi17.png)
 
-Se decide finalmente utilizar testing como el Test Runner, es el estándar de Go, no necesita instalar nada por lo que el tiempo de instalación es nulo. Como nota adicional "go test" no escribe en el directorio de fuentes, tan solo en una caché fuera del repositorio (GOCACHE)
+Se decide finalmente utilizar testing como el Test Runner, es el estándar de Go, no necesita instalar nada por lo que el tiempo de instalación es nulo. Como nota adicional "go test" no escribe en el directorio de fuentes, tan solo en una caché fuera del repositorio (GOCACHE). En cuanto a los tiempos de ejecución, el que menos tarda es Testing también.
 
 
 
