@@ -85,7 +85,7 @@ Ahora Gingko podrá ejecutar el mismo test que las otras herramientas, por lo qu
 ![Captura del tiempo de ejecución de Ginkgo](../IMAGENES/justi20.png)
 El tiempo de ejecución de media usando Ginkgo es de 492.8 ms
 
-Se decide finalmente utilizar "go test", el cúal además es compatible con todos los frameworks que se van a ver a continuación. Ginko tarda bastante más y "gotestsum" también tiene un tiempo de ejecución ligeramente superior. 
+Se decide finalmente utilizar "go test", el cúal además es compatible con todos los frameworks que se van a ver a continuación. Ginko tarda bastante más y "gotestsum" también tiene un tiempo de ejecución ligeramente superior. Sin embargo, al fijarnos en la desviación vemos que la oscilación en los tiempos entre "go test" y "gotestsum" puede llevar a empates, por lo que se introduce el número de pasos de configuración necesarios en el entorno de integración continua como criterio objetivo y medible para desempatar. En este caso, "go test" requiere de 0 comandos de instalación previos frente a 1 comando que "gotestsum" requiere, por lo que nos decantamos por "go test" después del desempate.
 
 ## Framework
 
@@ -109,7 +109,7 @@ Aquí se observa un extracto del código, que también usa describe. En cuanto a
 ![Captura del tiempo de instalación de franela/goblin](../IMAGENES/justi24.png)
 El tiempo de ejecución de media usando franela/goblin es de 149.5 ms
 
-Se decide finalmente utilizar testing como el Framework. El tiempo de ejecución de Ginkgo es bastante superior al de testing y el de franela/goblin, aunque ligeramente, también es superior. Como nota adicional "go test" no escribe en el directorio de fuentes, tan solo en una caché fuera del repositorio (GOCACHE).
+Se decide finalmente utilizar testing como el Framework. El tiempo de ejecución de Ginkgo es bastante superior al de testing y el de franela/goblin, aunque ligeramente, también es superior. Sin embargo, las oscilaciones de tiempo pueden llevar a tiempos de ejecución iguales entre franela/goblin y testing, por lo que se debe definir otro criterio objetivo como desempate. El criterio en este caso es la legibilidad del código, es decir, el número de líneas (cúantas más peor) y el número de primitivas que hay que aprender con cada framework (cúantas más peor). Según este criterio, el test usando testing contiene 241 líneas de código (usando el comando wc -l ruta_optima_test.go), mientras que franela/goblin cuenta con 266 líneas. Además, testing cuenta con 4 primitivas (testing.T, t.Run, t.Fatalf y t.Errorf), mientras que franela/goblin contiene 8 (Goblin(t), g.Describe, g.BeforeEach, g.It, g.Assert, .IsNil, .IsTrue). Como tanto las líneas de código como las primitivas son superiores en franela/goblin, testing será el framework utilizado. Como nota adicional "go test" no escribe en el directorio de fuentes, tan solo en una caché fuera del repositorio (GOCACHE).
 
 
 
