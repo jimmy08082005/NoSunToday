@@ -3,3 +3,4 @@ entidad: internal/pueblo/callejero.go
 automatizar:
  fichero: Makefile
  orden: make
+test: internal/pueblo/ruta_optima_test.go
